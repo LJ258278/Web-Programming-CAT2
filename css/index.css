@@ -56,6 +56,7 @@ html {
   font-size: 100%; /* Allows user scaling */
 }
 
+
 body {
   font-family: var(--font-primary);
   background-color: var(--color-bg);
@@ -63,7 +64,27 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  background-image: none;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   background-image: url(../assets/image2.jpeg);
+  background-size: contain;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(12px);           
+  -webkit-filter: blur(12px);
+  z-index: -1;
+}
+
+main, header, footer, .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------------- UTILITY CLASSES ---------------- */
@@ -159,7 +180,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 420px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   backdrop-filter: blur(12px);
@@ -174,8 +195,8 @@ body {
   inset: 0;
   background: url("../assets/image1.webp") center/cover no-repeat;
   filter: blur(12px);
-  transform: scale(1.15);
-  opacity: 0.7;
+  transform: scale(1.2);
+  opacity: 0.5;
   z-index: -1;
 }
 
@@ -241,7 +262,7 @@ body {
   box-shadow: var(--shadow-xl);
 }
 
-/* ---------------- CTA BUTTON (MEET OUR TEAM) ---------------- */
+/* ---------------- BUTTON (MEET OUR TEAM) ---------------- */
 .cta-button {
   display: inline-flex;
   align-items: center;
